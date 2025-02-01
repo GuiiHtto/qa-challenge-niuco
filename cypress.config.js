@@ -1,9 +1,10 @@
-// Testando a integração do Cypress com o Github Actions novo pr
-const { defineConfig } = require("cypress");
-const { exec } = require('child_process');
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   projectId: 'skqidb',
+  video: true,
+  screenshotsFolder: 'cypress/screenshots',
+  videosFolder: 'cypress/videos',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
