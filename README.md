@@ -2,6 +2,7 @@
 
 ## Introdução
 
+Foram criados testes para aprendizagem, seguindo esse desafio, com o framework **Cypress** em CI/CD utilizando o Github como repositório, e suas actions e o Cypress como ferramenta, os testes serão aprimorados com o tempo abrangendo novas especificações e cenários mais complexos.
 Este repositório contém dois testes práticos para a vaga de **QA Engineer**. O objetivo é validar suas habilidades de automação de testes com:
 1. **Validação de fluxos de UI** com **Playwright**.
 2. **Interação e validação de APIs** com **Playwright** e **Node.js**.

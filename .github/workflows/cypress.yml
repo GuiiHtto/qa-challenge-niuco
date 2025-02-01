@@ -37,9 +37,10 @@ jobs:
 
       - name: Verify Cypress test results
         run: |
-          if [ ! -d "cypress/screenshots" ] || [ ! -d "cypress/videos" ]; then
+          if [ ! "$(ls -A cypress/screenshots)" ] || [ ! "$(ls -A cypress/videos)" ]; then
             echo "No Cypress test results found."
             exit 1
+          fi
 
       - name: Upload Cypress screenshots and videos (on failure)
         if: failure()
