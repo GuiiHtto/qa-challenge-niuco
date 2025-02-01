@@ -33,9 +33,13 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }} # Chave de gravação do Cypress Cloud
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token do GitHub para integração
+          MESA_LOADER_DRIVER_OVERRIDE: "swrast" # Adiciona a variável de ambiente para desativar o uso do ZINK
 
       - name: Verify Cypress test results
-        run: ls -la cypress/screenshots && ls -la cypress/videos
+        run: |
+          if [ ! -d "cypress/screenshots" ] || [ ! -d "cypress/videos" ]; then
+            echo "No Cypress test results found."
+            exit 1
 
       - name: Upload Cypress screenshots and videos (on failure)
         if: failure()
