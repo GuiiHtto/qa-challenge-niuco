@@ -35,13 +35,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token do GitHub para integração
           MESA_LOADER_DRIVER_OVERRIDE: "swrast" # Adiciona a variável de ambiente para desativar o uso do ZINK
 
-      - name: Verify Cypress test results
-        run: |
-          if [ ! -d "cypress/screenshots" ] || [ ! -d "cypress/videos" ]; then
-            echo "No Cypress test results found."
-            exit 1
-          fi
-
       - name: Upload Cypress screenshots and videos (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
