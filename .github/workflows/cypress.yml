@@ -1,3 +1,4 @@
+#Depois de setar a variável corretamente novo teste.
 name: Cypress Tests
 
 on: [push]
