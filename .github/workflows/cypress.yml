@@ -33,19 +33,15 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }} # Chave de gravação do Cypress Cloud
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token do GitHub para integração
-          MESA_LOADER_DRIVER_OVERRIDE: "swrast" # Adiciona a variável de ambiente para desativar o uso do ZINK
 
       - name: Verify Cypress test results
-        run: |
-          if [ ! -d "cypress/screenshots" ] || [ ! -d "cypress/videos" ]; then
-            echo "No Cypress test results found."
-            exit 1
+        run: ls -la cypress/screenshots && ls -la cypress/videos
 
       - name: Upload Cypress screenshots and videos (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-screenshots-and-videos
+          name: cypress-screenshots-and-videos-${{ matrix.containers }}-${{ github.run_id }}
           path: |
             cypress/screenshots
             cypress/videos
