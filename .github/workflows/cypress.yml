@@ -28,7 +28,7 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          record: true # Grava os testes no Cypress Cloud
+          record: false # Grava os testes no Cypress Cloud
           parallel: true # Executa os testes em paralelo
           browser: chrome # Define o navegador padrão (opcional)
         env:
