@@ -1,4 +1,4 @@
-// Testando a integração do Cypress com o Github Actions
+// Testando a integração do Cypress com o Github Actions novo pr
 const { defineConfig } = require("cypress");
 const { exec } = require('child_process');
 
